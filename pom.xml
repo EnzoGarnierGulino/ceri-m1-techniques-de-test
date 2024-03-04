@@ -20,6 +20,7 @@
                 <version>4.0.0-M1</version>
             </plugin>
         </plugins>
+        <testSourceDirectory>${project.basedir}/src/test/java</testSourceDirectory>
     </build>
 
     <!--    Dependencies    -->
