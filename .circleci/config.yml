@@ -34,6 +34,7 @@ jobs:
           root: target
           paths:
             - jacoco.exec
+      - codecov/upload
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
@@ -42,8 +43,3 @@ workflows:
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - build-and-test
-      - codecov/upload:
-          requires:
-            - build-and-test
-          file: target/jacoco.exec
-          flags: unittests
