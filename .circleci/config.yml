@@ -30,10 +30,6 @@ jobs:
           name: Test
           command: mvn test
       # Persist the Jacoco execution file to the workspace
-      - persist_to_workspace:
-          root: target
-          paths:
-            - jacoco.exec
       - codecov/upload
 
 # Invoke jobs via workflows
