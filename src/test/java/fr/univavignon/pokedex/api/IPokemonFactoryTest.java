@@ -26,6 +26,10 @@ public class IPokemonFactoryTest {
         assertEquals(613, pokemon.getAttack());
         assertEquals(64, pokemon.getDefense());
         assertEquals(4000, pokemon.getStamina());
-        assertEquals(126, pokemon.getHp(), 0);
+        assertEquals(126, pokemon.getHp());
+        assertEquals(4, pokemon.getCp(), 0);
+        assertEquals(126, pokemon.getDust(), 0);
+        assertEquals(90, pokemon.getCandy(), 0);
+        assertEquals(0, pokemon.getIv(), 0);
     }
 }
