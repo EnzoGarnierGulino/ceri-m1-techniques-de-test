@@ -41,8 +41,7 @@ public class IPokedexTest {
 
     @Test
     public void testGetPokemonsSorted() {
-        Comparator<Pokemon> comparator = Comparator.comparing(Pokemon::getName);
-        List<Pokemon> sortedPokemons = pokedex.getPokemons(comparator);
+        List<Pokemon> sortedPokemons = pokedex.getPokemons(PokemonComparators.NAME);
         assertEquals("Bulbasaur", sortedPokemons.get(0).getName());
         assertEquals("Ivysaur", sortedPokemons.get(1).getName());
     }
