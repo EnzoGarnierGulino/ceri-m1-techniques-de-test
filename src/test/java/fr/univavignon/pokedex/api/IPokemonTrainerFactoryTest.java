@@ -8,24 +8,18 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class IPokemonTrainerFactoryTest {
-    private IPokemonTrainerFactory pokemonTrainerFactory;
-    private IPokedexFactory pokedexFactoryMock;
-    private IPokedex pokedexMock;
+    private IPokedex pokedex = new Pokedex(new PokemonFactory(), new PokemonMetadataProvider());
 
     @Before
-    public void setUp() throws PokedexException {
-        pokemonTrainerFactory = mock(IPokemonTrainerFactory.class);
-        pokedexFactoryMock = mock(IPokedexFactory.class);
-        PokemonTrainer trainer = new PokemonTrainer("Enzo", Team.MYSTIC, pokedexMock);
-        when(pokemonTrainerFactory.createTrainer("Enzo", Team.MYSTIC, pokedexFactoryMock))
-                .thenReturn(new PokemonTrainer("Enzo", Team.MYSTIC, pokedexMock));
+    public void setUp() {
+        PokemonTrainer trainer = new PokemonTrainer("Enzo", Team.MYSTIC, pokedex);
     }
 
     @Test
     public void testCreateTrainer() {
-        PokemonTrainer pokemonTrainer = new PokemonTrainer("Enzo", Team.MYSTIC, pokedexMock);
+        PokemonTrainer pokemonTrainer = new PokemonTrainer("Enzo", Team.MYSTIC, pokedex);
         assertEquals("Enzo", pokemonTrainer.getName());
         assertEquals(Team.MYSTIC, pokemonTrainer.getTeam());
-        assertEquals(pokedexMock, pokemonTrainer.getPokedex());
+        assertEquals(pokedex, pokemonTrainer.getPokedex());
     }
 }

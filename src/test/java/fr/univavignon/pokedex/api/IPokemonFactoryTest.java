@@ -1,36 +1,24 @@
 package fr.univavignon.pokedex.api;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 public class IPokemonFactoryTest {
-    private IPokemonFactory pokemonFactory;
-
-    @Before
-    public void setUp() {
-        pokemonFactory = mock(IPokemonFactory.class);
-        when(pokemonFactory.createPokemon(
-                0, 613, 64, 4000, 4))
-                .thenReturn(new Pokemon(0, "Bulbizarre", 613, 64, 4000, 4, 126, 126, 90, 0)
-                );
-    }
+    private final IPokemonFactory pokemonFactory = new PokemonFactory();
 
     @Test
-    public void testCreatePokemon() {
-        Pokemon pokemon = pokemonFactory.createPokemon(0, 613, 64, 4000, 4);
-        assertEquals("Bulbizarre", pokemon.getName());
-        assertEquals(613, pokemon.getAttack());
-        assertEquals(64, pokemon.getDefense());
-        assertEquals(4000, pokemon.getStamina());
-        assertEquals(126, pokemon.getHp());
-        assertEquals(4, pokemon.getCp(), 0);
-        assertEquals(126, pokemon.getDust(), 0);
-        assertEquals(90, pokemon.getCandy(), 0);
-        assertEquals(0, pokemon.getIv(), 0);
+    public void testCreatePokemon() throws PokedexException {
+        Pokemon pokemon = pokemonFactory.createPokemon(1, 20, 30, 10, 40);
+        assertEquals("Bulbasaur", pokemon.getName());
+        assertEquals(49, pokemon.getAttack());
+        assertEquals(49, pokemon.getDefense());
+        assertEquals(45, pokemon.getStamina());
+        assertEquals(20, pokemon.getCp(), 0);
+        assertEquals(30, pokemon.getHp());
+        assertEquals(10, pokemon.getDust(), 0);
+        assertEquals(40, pokemon.getCandy(), 0);
+        assertEquals(100, pokemon.getIv(), 0);
         assertEquals(0, pokemon.getIndex());
     }
 }

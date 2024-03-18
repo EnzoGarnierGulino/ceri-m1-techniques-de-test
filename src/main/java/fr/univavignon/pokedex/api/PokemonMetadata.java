@@ -22,6 +22,14 @@ public class PokemonMetadata {
 	/** Pokemon stamina level. **/
 	private final int stamina;
 
+	public PokemonMetadata() {
+		this.index = 0;
+		this.name = "";
+		this.attack = 0;
+		this.defense = 0;
+		this.stamina = 0;
+	}
+
 	/**
 	 * Default constructor.
 	 * 
