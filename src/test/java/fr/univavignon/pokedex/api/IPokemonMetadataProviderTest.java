@@ -17,7 +17,7 @@ public class IPokemonMetadataProviderTest {
     }
 
     @Test
-    public void testGetPokemonMetadataException() {
+    public void testGetPokemonMetadataException() throws PokedexException {
         try {
             metadataProvider.getPokemonMetadata(-1);
         } catch (PokedexException e) {
