@@ -27,7 +27,7 @@ public class PokemonMetadataProvider implements IPokemonMetadataProvider {
                 jsonParser.skipChildren();
             }
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
         if (pokemonMetadata == null) {
             throw new PokedexException("Pokemon not found");

@@ -3,23 +3,22 @@ package fr.univavignon.pokedex.api;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.junit.Assert.*;
 
 public class IPokemonTrainerFactoryTest {
-    private IPokedex pokedex = new Pokedex(new PokemonFactory(), new PokemonMetadataProvider());
+    private PokemonTrainerFactory pokemonTrainerFactory;
 
     @Before
     public void setUp() {
-        PokemonTrainer trainer = new PokemonTrainer("Enzo", Team.MYSTIC, pokedex);
+        pokemonTrainerFactory = new PokemonTrainerFactory();
     }
 
     @Test
     public void testCreateTrainer() {
-        PokemonTrainer pokemonTrainer = new PokemonTrainer("Enzo", Team.MYSTIC, pokedex);
+        PokemonTrainer pokemonTrainer = pokemonTrainerFactory.createTrainer(
+                "Enzo", Team.MYSTIC, new PokedexFactory());
         assertEquals("Enzo", pokemonTrainer.getName());
         assertEquals(Team.MYSTIC, pokemonTrainer.getTeam());
-        assertEquals(pokedex, pokemonTrainer.getPokedex());
+        assertNotNull(pokemonTrainer.getPokedex());
     }
 }

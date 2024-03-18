@@ -1,5 +1,7 @@
 package fr.univavignon.pokedex.api;
 
+import java.io.IOException;
+
 /**
  * An IPokemonMetadataProvider aims to provide PokemonMetadata
  * for a given pokemon index.
