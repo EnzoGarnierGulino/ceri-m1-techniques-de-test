@@ -13,7 +13,7 @@ public class PokemonMetadataProvider implements IPokemonMetadataProvider {
     @Override
     public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
         ObjectMapper objectMapper = new ObjectMapper();
-        Path path = Paths.get("C:\\Users\\Z84cr\\Desktop\\M1\\S2\\Techniques de Test\\TP1\\ceri-m1-techniques-de-test\\src\\db\\db.json");
+        Path path = Paths.get("db.json");
         PokemonMetadata pokemonMetadata = null;
         try (JsonParser jsonParser = objectMapper.getFactory().createParser(path.toFile())) {
             jsonParser.nextToken();
