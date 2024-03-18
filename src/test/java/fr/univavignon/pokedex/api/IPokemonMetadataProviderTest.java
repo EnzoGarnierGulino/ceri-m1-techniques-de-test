@@ -25,4 +25,15 @@ public class IPokemonMetadataProviderTest {
             System.out.println(e.getMessage());
         }
     }
+
+    // Should change these tests, will do it later
+    @Test
+    public void testRuntimeException() throws RuntimeException {
+        try {
+            metadataProvider.getPokemonMetadata(0);
+        } catch (RuntimeException | PokedexException e) {
+            assertEquals("Pokemon not found", e.getMessage());
+            System.out.println(e.getMessage());
+        }
+    }
 }
