@@ -2,11 +2,6 @@
 
 # UCE Génie Logiciel Avancé : Techniques de tests
 
-## Informations importantes ☠️
-
-Lors de l'ajout de la Javadoc durant la partie 2 du TP5, j'ai cassé mon projet, il m'est désormais impossible de l'ouvrir avec mon IDE.
-Je vais donc faire ce que je peux pour le TP6 😭
-
 ## Code Coverage :
 
 [![CircleCI](https://circleci.com/gh/EnzoGarnierGulino/ceri-m1-techniques-de-test.svg?style=svg)](https://circleci.com/gh/EnzoGarnierGulino/ceri-m1-techniques-de-test)
