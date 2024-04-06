@@ -71,6 +71,47 @@
                     <!-- <excludes>src/main/resources/**</excludes> -->
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.3.1</version>
+                <configuration>
+                    <!-- Spécifiez le répertoire de sortie de la Javadoc -->
+                    <reportOutputDirectory>${project.build.directory}/site/apidocs</reportOutputDirectory>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <!-- Générer la Javadoc lors de la phase de package -->
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.github.github</groupId>
+                <artifactId>site-maven-plugin</artifactId>
+                <version>0.12</version>
+                <configuration>
+                    <message>Automatic javadoc generation</message>
+                    <noJekyll>true</noJekyll>
+                    <outputDirectory>${project.build.directory}/site</outputDirectory>
+                    <branch>gh-pages</branch>
+                    <merge>true</merge>
+                    <includes>
+                        <include>**/*</include>
+                    </includes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>site</goal>
+                        </goals>
+                        <phase>deploy</phase>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
         <testSourceDirectory>${project.basedir}/src/test/java</testSourceDirectory>
     </build>

@@ -1,0 +1,24 @@
+<!DOCTYPE module PUBLIC "-//Puppy Crawl//DTD Check Configuration 1.3//EN"
+        "https://checkstyle.org/dtds/configuration_1_3.dtd">
+
+<module name="Checker">
+    <!-- Define the default severity level for violations -->
+    <property name="severity" value="warning"/>
+
+    <!-- Define the coding standard for the project -->
+    <module name="TreeWalker">
+        <!-- Include a check for method length -->
+        <module name="MethodLength">
+            <!-- Set maximum method length to 100 lines -->
+            <property name="max" value="100"/>
+        </module>
+    </module>
+
+    <!-- Include a check for line length -->
+    <module name="LineLength">
+        <!-- Set maximum line length to 120 characters -->
+        <property name="max" value="120"/>
+        <!-- Specify the check for Javadoc comments as well -->
+        <property name="ignorePattern" value="^.*\*.*\*$"/>
+    </module>
+</module>
