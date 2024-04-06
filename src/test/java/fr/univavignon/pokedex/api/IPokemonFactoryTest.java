@@ -26,4 +26,19 @@ public class IPokemonFactoryTest {
         assertTrue("IV value should be <= 100", pokemon.getIv() <= 1);
         assertEquals(1, pokemon.getIndex());
     }
+
+    @Test
+    public void testCreatePokemonWithNegativeIndex() throws PokedexException {
+        int index = -1;
+        int cp = 20;
+        int hp = 30;
+        int dust = 10;
+        int candy = 40;
+        Pokemon pokemon = pokemonFactory.createPokemon(index, cp, hp, dust, candy);
+        assertEquals("Ash's Pikachu", pokemon.getName());
+        assertEquals(1000, pokemon.getAttack());
+        assertEquals(1000, pokemon.getDefense());
+        assertEquals(1000, pokemon.getStamina());
+        assertEquals(0.0, pokemon.getIv(), 0.01);
+    }
 }

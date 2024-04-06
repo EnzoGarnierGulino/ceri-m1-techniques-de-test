@@ -28,7 +28,7 @@ public class PokemonFactory implements IPokemonFactory {
 
     private static int generateRandomStat() {
         int total = 0;
-        for (int i=0; i < 1000000; i++) {
+        for (int i = 0; i < 1000000; i++) {
             Random rn = new Random();
             int r = rn.nextInt(2);
             total = total + r;
