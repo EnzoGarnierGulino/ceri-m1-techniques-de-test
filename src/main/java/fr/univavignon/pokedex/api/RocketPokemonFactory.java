@@ -1,21 +1,15 @@
 package fr.univavignon.pokedex.api;
 
-import org.apache.commons.collections4.map.UnmodifiableMap;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-public class PokemonFactory implements IPokemonFactory {
+import org.apache.commons.collections4.map.UnmodifiableMap;
 
-//    @Override
-//    public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) throws PokedexException {
-//        PokemonMetadataProvider pokemonMetadataProvider = new PokemonMetadataProvider();
-//        PokemonMetadata pokemonMetadata = pokemonMetadataProvider.getPokemonMetadata(index);
-//        return new Pokemon(index, pokemonMetadata.getName(), pokemonMetadata.getAttack(), pokemonMetadata.getDefense(),
-//                pokemonMetadata.getStamina(), cp, hp, dust, candy, 100);
-//    }
+import fr.univavignon.pokedex.api.IPokemonFactory;
+import fr.univavignon.pokedex.api.Pokemon;
 
+public class RocketPokemonFactory implements IPokemonFactory {
     private static Map<Integer, String> index2name;
     static {
         Map<Integer, String> aMap = new HashMap<Integer, String>();
@@ -28,7 +22,7 @@ public class PokemonFactory implements IPokemonFactory {
 
     private static int generateRandomStat() {
         int total = 0;
-        for (int i=0; i < 1000000; i++) {
+        for (int i = 0; i < 1000000; i++) {
             Random rn = new Random();
             int r = rn.nextInt(2);
             total = total + r;
@@ -54,9 +48,9 @@ public class PokemonFactory implements IPokemonFactory {
             stamina = 1000;
             iv = 0;
         } else {
-            attack = PokemonFactory.generateRandomStat();
-            defense = PokemonFactory.generateRandomStat();
-            stamina = PokemonFactory.generateRandomStat();
+            attack = RocketPokemonFactory.generateRandomStat();
+            defense = RocketPokemonFactory.generateRandomStat();
+            stamina = RocketPokemonFactory.generateRandomStat();
             iv = 1;
         }
         return new Pokemon(index, name, attack, defense, stamina, cp, hp, dust, candy, iv);

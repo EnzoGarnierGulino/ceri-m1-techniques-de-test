@@ -37,7 +37,6 @@
                             <goal>report</goal>
                         </goals>
                     </execution>
-                    <!-- Additional executions if needed -->
                 </executions>
             </plugin>
             <plugin>
@@ -45,7 +44,6 @@
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <version>3.1.1</version>
                 <dependencies>
-                    <!-- Add Checkstyle as a dependency -->
                     <dependency>
                         <groupId>com.puppycrawl.tools</groupId>
                         <artifactId>checkstyle</artifactId>
@@ -53,7 +51,6 @@
                     </dependency>
                 </dependencies>
                 <executions>
-                    <!-- Configure Checkstyle to run during the Maven build -->
                     <execution>
                         <id>validate</id>
                         <phase>validate</phase>
@@ -62,13 +59,9 @@
                         </goals>
                     </execution>
                 </executions>
-                <!-- Configuration for Checkstyle -->
                 <configuration>
                     <configLocation>checkstyle.xml</configLocation>
-                    <!-- Fail the build if Checkstyle violations are found -->
                     <failOnViolation>true</failOnViolation>
-                    <!-- Exclude files or directories from Checkstyle -->
-                    <!-- <excludes>src/main/resources/**</excludes> -->
                 </configuration>
             </plugin>
         </plugins>
@@ -93,6 +86,11 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>2.16.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>4.4</version>
         </dependency>
     </dependencies>
 </project>
